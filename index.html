@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switcher Assignment</title>
+    <style>
+        body {
+            background-color: white; 
+            color: black;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            transition: all 0.5s ease;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: #eee;
+        }
+        
+        button:hover {
+            background-color: #ddd;
+        }
+
+        #theme-status {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="main-heading">Theme Switcher Web Page</h1>
+    
+    <p id="description">Click the button below to toggle between Light and Dark themes.</p>
+    
+    <button id="changeThemeBtn">Change Theme</button>
+
+    <p id="theme-status">Current Status: Light Mode</p>
+
+    <script>
+        const bodyElement = document.body;
+        const buttonElement = document.getElementById('changeThemeBtn');
+        const statusLabel = document.getElementById('theme-status');
+        
+        let isDarkMode = false;
+
+        buttonElement.addEventListener('click', function() {
+            
+            if (isDarkMode) {
+                bodyElement.style.backgroundColor = "white"; 
+                bodyElement.style.color = "black";           
+                bodyElement.style.fontFamily = "'Arial', sans-serif"; 
+                
+                statusLabel.innerHTML = "Current Status: Light Mode";
+                
+                isDarkMode = false;
+            } else {
+                bodyElement.style.backgroundColor = "black"; 
+                bodyElement.style.color = "white";           
+                bodyElement.style.fontFamily = "'Courier New', monospace"; 
+                
+                statusLabel.innerHTML = "Current Status: Dark Mode";
+                
+                isDarkMode = true;
+            }
+        });
+    </script>
+</body>
+</html>
